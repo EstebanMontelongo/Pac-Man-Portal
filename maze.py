@@ -105,7 +105,6 @@ class Maze:
                 if char == "P":
                     self.pinky_default_x = x
                     self.pinky_default_y = y
-
                 if char == "C":
                     self.clyde_default_x = x
                     self.clyde_default_y = y
@@ -115,7 +114,6 @@ class Maze:
                 if char == '.':
                     block = PacRects(x, y, 19, 19, "images/invis_portal.png")
                     self.fruit.append(block)
-
                 x += 19
             y += 19
 

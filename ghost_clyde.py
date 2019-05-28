@@ -14,24 +14,19 @@ class Clyde(PacRects):
         self.ghost_speed_x = 5
         self.ghost_speed_y = 0
 
+        self.ghost_timer = 0
+
         self.screen = screen
 
         # default position for Clyde using maze
         self.defualt_x = self.pac.maze.clyde_default_x
         self.default_y = self.pac.maze.clyde_default_y
 
-        # direction
-        self.direction = "right"
-
         # ghost alive
         self.ghost_alive = True
         # ghost fear mode
         self.ghost_fear = False
-
-        self.ghost_timer = 0
-
-        self.counter = 250
-
+        self.w_collision = False
         # direction
         self.direction = "right"
 
@@ -40,6 +35,8 @@ class Clyde(PacRects):
                        pygame.image.load('images/clyde_2.png')]
 
         self.a_index = 0
+
+        self.counter = 250
 
         # death animation images
         self.death_image = pygame.image.load('images/ghost_eyes.png')
@@ -50,11 +47,14 @@ class Clyde(PacRects):
                             pygame.image.load('images/ghost_fear_3.png'),
                             pygame.image.load('images/ghost_fear_4.png')]
         self.f_index = 0
-        self.reset_ghosts_pos()
+        self.w_collision = False
+        self.reset_ghost()
 
-    def reset_ghosts_pos(self):
+    def reset_ghost(self):
         self.rect.x = self.defualt_x
         self.rect.y = self.default_y
+        self.direction = "right"
+        self.w_collision = False
 
     def increase_a_index(self):
         self.ghost_timer += 1
@@ -119,14 +119,10 @@ class Clyde(PacRects):
         # self.fear_warning()
 
     def update_movement(self):
-        self.rect.x += self.ghost_speed_x
-        self.rect.y += self.ghost_speed_y
-
-    def movement(self):
 
         if self.direction == "up":
-            self.ghost_speed_x = -5
-            self.ghost_speed_y = 0
+            self.ghost_speed_x = 0
+            self.ghost_speed_y = -5
 
         if self.direction == "down":
             self.ghost_speed_y = 5
@@ -140,32 +136,40 @@ class Clyde(PacRects):
             self.ghost_speed_x = 5
             self.ghost_speed_y = 0
 
-        # handles wall and collisions
-        w_collision = False
-        self.update_movement()
+        self.rect.x += self.ghost_speed_x
+        self.rect.y += self.ghost_speed_y
+
+    # will take a direction from the A* algorithm
+    def ai_movement(self, direction):
+        pass
+
+    def handle_w_coll(self):
         # checks if ghost updated position collides with wall
         for wall in self.pac.maze.walls:
             if self.rect.colliderect(wall.rect):
-                w_collision = True
-        if w_collision:
+              #  print("wall collision")
+                self.w_collision = True
+                break
+                # if there is a collision fix the position
+        if self.w_collision:
             if self.direction == "up":
-                self.rect.y += self.ghost_speed_y
+                self.rect.y -= self.ghost_speed_y
                 self.direction = "down"
-            if self.direction == "left":
-                self.rect.x += self.ghost_speed_x
+              #  print("direction switched from up => down")
+
+            elif self.direction == "left":
+                self.rect.x -= self.ghost_speed_x
                 self.direction = "right"
-            if self.direction == "down":
+             #   print("direction switched from left => right")
+
+            elif self.direction == "down":
                 self.rect.y -= self.ghost_speed_y
                 self.direction = "up"
-            if self.direction == "right":
+             #   print("direction switched from down => up")
+
+            elif self.direction == "right":
                 self.rect.x -= self.ghost_speed_x
                 self.direction = "left"
+              #  print("direction switched from right => left")
 
-    def fear_warning(self):
-        pass
-
-    def return_home(self):
-        pass
-
-    def ai_direction(self):
-        pass
+        self.w_collision = False
