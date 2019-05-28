@@ -7,6 +7,9 @@
 # What I Learned
 
 > How to code in Python
+
 > How to create a game 
+
 > How to create game logic
+
 > How to use the PyGame libraries
