@@ -6,7 +6,7 @@
 
   > Ghost movement AI
   
-  > a few game functionalities
+  > A few game functionalities
   
   > Ghost Master class all other ghosts should inherit from a master class
 
