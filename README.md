@@ -2,7 +2,7 @@
 
 > Clone of the original Pac-Man game with a twist, you can use portals!
 
-> Missing : Ghost movement AI and a few game functionalities.
+> Missing : Ghost movement AI and a few game functionalities, Ghost Master class all other ghosts should inherit from a master class
 
 # What I Learned
 
