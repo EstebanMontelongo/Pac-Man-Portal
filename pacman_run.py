@@ -159,7 +159,7 @@ def gameloop():
                 ghost.ghost_fear = pac.ghost_fear
             for ghost in ghosts:
                 ghost.update_movement()
-                ghost.handle_w_coll()
+                ghost.ai_movement()
                 ghost.pac_coll()
                 if not ghost.ghost_fear and ghost.ghost_alive:
                     ghost.draw_()

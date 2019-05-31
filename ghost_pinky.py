@@ -1,11 +1,17 @@
 import pygame
 from rect_object import PacRects
+import random
 
 
 class Pinky(PacRects):
 
     def __init__(self, x, y, width, height, image, screen, pacman):
         super().__init__(x, y, width, height, image)
+
+        # ============== Testing Random Movement ==============
+        self.m_index = 0
+        self.m_counter = 0
+        # =====================================================
 
         # current
         self.rect.x = x
@@ -139,15 +145,39 @@ class Pinky(PacRects):
         self.rect.x += self.ghost_speed_x
         self.rect.y += self.ghost_speed_y
 
+        self.handle_w_coll()
+
     # will take a direction from the A* algorithm
-    def ai_movement(self, direction):
-        pass
+    def ai_movement(self):
+        if self.m_counter % 5 == 0:
+            self.m_index = random.randrange(1, 4)
+            self.m_counter = 0
+        self.m_counter += 1
+
+        if self.m_index == 1:
+            self.direction = "left"
+            self.ghost_speed_x = -5
+            self.ghost_speed_y = 0
+        if self.m_index == 2:
+            self.direction = "right"
+            self.ghost_speed_x = 5
+            self.ghost_speed_y = 0
+        if self.m_index == 3:
+            self.direction = "up"
+            self.ghost_speed_x = 0
+            self.ghost_speed_y = -5
+        if self.m_index == 4:
+            self.direction = "down"
+            self.ghost_speed_y = 5
+            self.ghost_speed_x = 0
+
+        self.handle_w_coll()
 
     def handle_w_coll(self):
         # checks if ghost updated position collides with wall
         for wall in self.pac.maze.walls:
             if self.rect.colliderect(wall.rect):
-              #  print("wall collision")
+                #  print("wall collision")
                 self.w_collision = True
                 break
                 # if there is a collision fix the position
@@ -155,21 +185,21 @@ class Pinky(PacRects):
             if self.direction == "up":
                 self.rect.y -= self.ghost_speed_y
                 self.direction = "down"
-              #  print("direction switched from up => down")
+                #  print("direction switched from up => down")
 
             elif self.direction == "left":
                 self.rect.x -= self.ghost_speed_x
                 self.direction = "right"
-             #   print("direction switched from left => right")
+                #   print("direction switched from left => right")
 
             elif self.direction == "down":
                 self.rect.y -= self.ghost_speed_y
                 self.direction = "up"
-             #   print("direction switched from down => up")
+                #   print("direction switched from down => up")
 
             elif self.direction == "right":
                 self.rect.x -= self.ghost_speed_x
                 self.direction = "left"
-              #  print("direction switched from right => left")
+                #  print("direction switched from right => left")
 
         self.w_collision = False
