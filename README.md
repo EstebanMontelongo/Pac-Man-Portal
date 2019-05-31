@@ -4,35 +4,35 @@
 
 > Missing : 
 
-  > GHOST:
+    > Ghost:
   
-    > Ghost AI movement for each ghost (Currently Random)
+      > Ghost AI movement for each ghost (Currently Random)
 
-    > Ghost eye update depending on direction
+      > Ghost eye update depending on direction
 
-    > Ghost death return home and become alive when home is reached
+      > Ghost death return home and become alive when home is reached
 
-    > Ghost run when in fear mode
+      > Ghost run when in fear mode
 
-    > Ghost blink indicating fear is about to run out
+      > Ghost blink indicating fear is about to run out
 
-    > Ghost Master class all other ghosts should inherit from a master class
-    
-    > Display points when eaten, also increase point amount for each consecutive ghost death
+      > Ghost Master class all other ghosts should inherit from a master class
+
+      > Display points when eaten, also increase point amount for each consecutive ghost death
   
-  > Game:
+    > Game:
   
-    > Add correct fruit system (spawning, correct quantity per level, correct point score display)
-    
-    > Add lives left Icons
-    
-    > Add better score and highscore Icons
-    
-    > Improve map appearence, make corners smooth
-    
-    > Add new levels and level difficulty as number of pellets decrease
-    
-    > Fix portal bugs, pac-man movement improvements, 
+      > Add correct fruit system (spawning, correct quantity per level, correct point score display)
+
+      > Add lives left Icons
+
+      > Add better score and highscore Icons
+
+      > Improve map appearence, make corners smooth
+
+      > Add new levels and level difficulty as number of pellets decrease
+
+      > Fix portal bugs, pac-man movement improvements, anything else im missing
 
 # What I Learned
 
