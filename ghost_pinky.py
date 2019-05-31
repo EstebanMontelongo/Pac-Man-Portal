@@ -149,7 +149,7 @@ class Pinky(PacRects):
 
     # will take a direction from the A* algorithm
     def ai_movement(self):
-        if self.m_counter % 5 == 0:
+        if self.m_counter % 10 == 0:
             self.m_index = random.randrange(1, 4)
             self.m_counter = 0
         self.m_counter += 1

@@ -167,6 +167,7 @@ def gameloop():
                     ghost.fear()
                 elif not ghost.ghost_alive:
                     ghost.death()
+                    # add ghost return home function
         elif not pac.pacman_alive and not stats.game_over:
             pac.death_draw()
             time.sleep(0.15)
