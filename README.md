@@ -33,6 +33,8 @@
       > Add new levels and level difficulty as number of pellets decrease
 
       > Fix portal bugs, pac-man movement improvements, anything else im missing
+      
+      > Game Sound
 
 # What I Learned
 
