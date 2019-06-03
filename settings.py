@@ -9,6 +9,7 @@ class Settings:
         # Screen Settings
         self.screen_width = 874
         self.screen_height = 969
+
         self.bg_color = (0, 0, 0)
         # default block size
         self.size = 32
