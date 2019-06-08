@@ -36,6 +36,8 @@
       
       > Fix size screen size dependencies
       
+      > Fix all pellets equal distance
+      
       > Game Sound
 
 # What I Learned
