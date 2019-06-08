@@ -18,7 +18,7 @@
 
       > Ghost Master class all other ghosts should inherit from a master class
 
-      > Display points when eaten, also increase point amount for each consecutive ghost death
+      > Display points when eaten, also increase point amount for each consecutive ghost eaten
   
     > Game:
   
