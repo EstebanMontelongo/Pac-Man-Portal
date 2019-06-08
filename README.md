@@ -34,6 +34,8 @@
 
       > Fix portal bugs, pac-man movement improvements, anything else im missing
       
+      > Fix size screen size dependencies
+      
       > Game Sound
 
 # What I Learned
