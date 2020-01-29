@@ -1,3 +1,4 @@
+import os.path
 import pygame
 from rect_object import PacRects
 import random
@@ -38,20 +39,20 @@ class Blinky(PacRects):
 
         # animation images
         self.images = [pygame.image.load(image),
-                       pygame.image.load('images/blinky_2.png')]
+                       pygame.image.load(os.getcwd() + '/images/blinky_2.png')]
 
         self.a_index = 0
 
         self.counter = 250
 
         # death animation images
-        self.death_image = pygame.image.load('images/ghost_eyes.png')
+        self.death_image = pygame.image.load(os.getcwd() + '/images/ghost_eyes.png')
 
         # fear animation
-        self.fear_images = [pygame.image.load('images/ghost_fear_1.png'),
-                            pygame.image.load('images/ghost_fear_2.png'),
-                            pygame.image.load('images/ghost_fear_3.png'),
-                            pygame.image.load('images/ghost_fear_4.png')]
+        self.fear_images = [pygame.image.load(os.getcwd() + '/images/ghost_fear_1.png'),
+                            pygame.image.load(os.getcwd() + '/images/ghost_fear_2.png'),
+                            pygame.image.load(os.getcwd() + '/images/ghost_fear_3.png'),
+                            pygame.image.load(os.getcwd() + '/images/ghost_fear_4.png')]
         self.f_index = 0
         self.w_collision = False
         self.reset_ghost()

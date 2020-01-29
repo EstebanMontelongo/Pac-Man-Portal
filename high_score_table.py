@@ -1,3 +1,4 @@
+import os.path
 import pygame.font
 
 
@@ -22,13 +23,13 @@ class HighScoreTable:
 
     # will update the file with proper list sequence
     def update_scores(self):
-        with open('high_scores.txt', 'w') as f:
+        with open(os.getcwd() + '/high_scores.txt', 'w') as f:
             f.write(str(self.high_score_table))
         f.close()
 
     # will read the file into the list
     def read_scores(self):
-        with open('high_scores.txt', 'r') as f:
+        with open(os.getcwd() + '/high_scores.txt', 'r') as f:
             self.high_score_table = eval(f.readline())
         f.close()
 

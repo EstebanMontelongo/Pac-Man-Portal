@@ -1,4 +1,5 @@
 from rect_object import PacRects
+import os.path
 import random
 import pygame
 
@@ -6,10 +7,10 @@ import pygame
 class Fruit(PacRects):
     """ fruits for pac-man to eat throughout the game"""
     def __init__(self, x, y, width, height, maze, screen, stats, pacman):
-        image = 'images/apple.png'
+        image = os.getcwd() + '/images/apple.png'
         super(Fruit, self).__init__(x, y, width, height, image)
-        self.images = [pygame.image.load('images/apple.png'), pygame.image.load('images/cherry.png'),
-                       pygame.image.load('images/peach.png'), pygame.image.load('images/strawberry.png')]
+        self.images = [pygame.image.load(os.getcwd() + '/images/apple.png'), pygame.image.load(os.getcwd() + '/images/cherry.png'),
+                       pygame.image.load(os.getcwd() + '/images/peach.png'), pygame.image.load(os.getcwd() + '/images/strawberry.png')]
         self.restore_images = self.images
         self.maze = maze
         self.screen = screen

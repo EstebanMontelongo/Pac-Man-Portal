@@ -1,3 +1,4 @@
+import os.path
 import pygame
 import time
 from rect_object import PacRects
@@ -36,25 +37,25 @@ class PacMan(PacRects):
         self.direction = "right"
         # pacman animation images
         self.images = [pygame.image.load(image),
-                       pygame.image.load('images/pacman_2.png'),
-                       pygame.image.load('images/pacman_3.png'),
-                       pygame.image.load('images/pacman_4.png'),
-                       pygame.image.load('images/pacman_5.png'),
-                       pygame.image.load('images/pacman_6.png'),
-                       pygame.image.load('images/pacman_7.png')]
+                       pygame.image.load(os.getcwd() + '/images/pacman_2.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_3.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_4.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_5.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_6.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_7.png')]
 
         self.a_index = 0
 
         # pacman death animation images
-        self.death_images = [pygame.image.load('images/pacman_death_1.png'),
-                             pygame.image.load('images/pacman_death_2.png'),
-                             pygame.image.load('images/pacman_death_3.png'),
-                             pygame.image.load('images/pacman_death_4.png'),
-                             pygame.image.load('images/pacman_death_5.png'),
-                             pygame.image.load('images/pacman_death_6.png'),
-                             pygame.image.load('images/pacman_death_7.png'),
-                             pygame.image.load('images/pacman_death_8.png'),
-                             pygame.image.load('images/pacman_death_9.png')]
+        self.death_images = [pygame.image.load(os.getcwd() + '/images/pacman_death_1.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_2.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_3.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_4.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_5.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_6.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_7.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_8.png'),
+                             pygame.image.load(os.getcwd() + '/images/pacman_death_9.png')]
 
         self.d_index = 0
         self.maze = Maze(screen, self)
@@ -125,9 +126,9 @@ class PacMan(PacRects):
             if self.rect.colliderect(wall.rect):
                 w_collision = True
         # checks is pacman updated position collides with shield
-        # for shield in self.maze.sheilds:
-        #    if self.rect.colliderect(shield.rect):
-        #        s_collision = True
+        for shield in self.maze.sheilds:
+           if self.rect.colliderect(shield.rect):
+               s_collision = True
         if w_collision or s_collision:
             if self.direction == "up":
                 self.rect.y -= self.pacman_y_speed

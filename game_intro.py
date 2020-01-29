@@ -1,3 +1,4 @@
+import os.path
 import pygame.font
 import pygame
 import pygame.sprite
@@ -22,27 +23,27 @@ class GameIntro:
         self.text1_rect.centery = screen.get_rect().centery = 150
 
         # pacman animation images
-        self.images = [pygame.image.load('images/pacman_1.png'),
-                       pygame.image.load('images/pacman_2.png'),
-                       pygame.image.load('images/pacman_3.png'),
-                       pygame.image.load('images/pacman_4.png'),
-                       pygame.image.load('images/pacman_5.png'),
-                       pygame.image.load('images/pacman_6.png'),
-                       pygame.image.load('images/pacman_7.png')]
+        self.images = [pygame.image.load(os.getcwd() + '/images/pacman_1.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_2.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_3.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_4.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_5.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_6.png'),
+                       pygame.image.load(os.getcwd() + '/images/pacman_7.png')]
 
         self.p_index = 0
 
         # fear animation
-        self.fear_images = [pygame.image.load('images/ghost_fear_1.png'),
-                            pygame.image.load('images/ghost_fear_2.png')]
+        self.fear_images = [pygame.image.load(os.getcwd() + '/images/ghost_fear_1.png'),
+                            pygame.image.load(os.getcwd() + '/images/ghost_fear_2.png')]
 
-        self.fear_warning = [pygame.image.load('images/ghost_fear_4.png'),
-                             pygame.image.load('images/ghost_fear_1.png')]
+        self.fear_warning = [pygame.image.load(os.getcwd() + '/images/ghost_fear_4.png'),
+                             pygame.image.load(os.getcwd() + '/images/ghost_fear_1.png')]
 
-        self.clyde_images = [pygame.image.load('images/clyde_1.png'), pygame.image.load('images/clyde_2.png')]
-        self.pinky_images = [pygame.image.load('images/pinky_1.png'), pygame.image.load('images/pinky_2.png')]
-        self.inky_images = [pygame.image.load('images/inky_1.png'), pygame.image.load('images/inky_2.png')]
-        self.blinky_images = [pygame.image.load('images/blinky_1.png'), pygame.image.load('images/blinky_2.png')]
+        self.clyde_images = [pygame.image.load(os.getcwd() + '/images/clyde_1.png'), pygame.image.load(os.getcwd() + '/images/clyde_2.png')]
+        self.pinky_images = [pygame.image.load(os.getcwd() + '/images/pinky_1.png'), pygame.image.load(os.getcwd() + '/images/pinky_2.png')]
+        self.inky_images = [pygame.image.load(os.getcwd() + '/images/inky_1.png'), pygame.image.load(os.getcwd() + '/images/inky_2.png')]
+        self.blinky_images = [pygame.image.load(os.getcwd() + '/images/blinky_1.png'), pygame.image.load(os.getcwd() + '/images/blinky_2.png')]
         self.rect = pygame.Rect(self.ai_setting.screen_width/2-30, self.ai_setting.screen_height/2+30, 32, 32)
         self.ghost_index = 0
 
