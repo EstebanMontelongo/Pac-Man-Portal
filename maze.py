@@ -81,7 +81,7 @@ class Maze:
             x = 0
             for char in line:
                 if char == 'X':
-                    block = PacRects(x, y, 19, 19, "images/wall.png")
+                    block = PacRects(x, y, 19, 19, "./images/wall.png")
                     self.walls.append(block)
                 if char == "M":
                     self.pac.default_x = x
@@ -91,13 +91,13 @@ class Maze:
                     block = PacRects(x, y, 19, 19, "images/pellet.png")
                     self.pellets.append(block)
                 if char == "@":
-                    block = PacRects(x, y, 19, 19, "images/pellet.png")
+                    block = PacRects(x, y, 19, 19, "./images/pellet.png")
                     self.power_pellets.append(block)
                 if char == "o":
-                    block = PacRects(x, y, 19, 19, "images/sheild.png")
+                    block = PacRects(x, y, 19, 19, "./images/sheild.png")
                     self.sheilds.append(block)
                 if char == "v":
-                    block = PacRects(x, y, 19, 19, "images/invis_portal.png")
+                    block = PacRects(x, y, 19, 19, "./images/invis_portal.png")
                     self.default_portals.append(block)
                 if char == "I":
                     self.inky_default_x = x
@@ -112,7 +112,7 @@ class Maze:
                     self.blinky_default_x = x
                     self.blinky_default_y = y
                 if char == '.':
-                    block = PacRects(x, y, 19, 19, "images/invis_portal.png")
+                    block = PacRects(x, y, 19, 19, "./images/invis_portal.png")
                     self.fruit.append(block)
                 x += 19
             y += 19

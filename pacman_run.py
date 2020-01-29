@@ -41,14 +41,14 @@ stats = GameStats(ai_settings)
 
 # pac man object
 pac = PacMan(ai_settings.pac_default_x, ai_settings.pac_default_y, ai_settings.size, ai_settings.size,
-             'images/pacman_1.png', screen, ai_settings, stats)
+             './images/pacman_1.png', screen, ai_settings, stats)
 
 # ghosts 0-3, pinky [0], blinky[1], inky[2], clyde[3]
 
-ghosts = [Pinky(0, 0, ai_settings.size, ai_settings.size, 'images/pinky_1.png', screen, pac),
-          Blinky(0, 0, ai_settings.size, ai_settings.size, 'images/blinky_1.png', screen, pac),
-          Inky(0, 0, ai_settings.size, ai_settings.size, 'images/inky_1.png', screen, pac),
-          Clyde(0, 0, ai_settings.size, ai_settings.size, 'images/clyde_1.png', screen, pac)]
+ghosts = [Pinky(0, 0, ai_settings.size, ai_settings.size, './images/pinky_1.png', screen, pac),
+          Blinky(0, 0, ai_settings.size, ai_settings.size, './images/blinky_1.png', screen, pac),
+          Inky(0, 0, ai_settings.size, ai_settings.size, './images/inky_1.png', screen, pac),
+          Clyde(0, 0, ai_settings.size, ai_settings.size, './images/clyde_1.png', screen, pac)]
 
 # Make the buttons
 play_button = Button(screen, "PLAY GAME", (ai_settings.screen_width/2,
@@ -70,7 +70,7 @@ score_board = Scoreboard(ai_settings, screen, stats, score_table)
 
 fruit = Fruit(0, 0, 19, 19, pac.maze, screen, stats, pac)
 
-portal = Portal(screen, pac, pac.rect.x, pac.rect.y, 32, 32, 'images/invis_portal.png')
+portal = Portal(screen, pac, pac.rect.x, pac.rect.y, 32, 32, './images/invis_portal.png')
 
 fire = False
 
